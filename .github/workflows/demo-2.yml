@@ -3,18 +3,23 @@ name: Demo-2
 on: 
   workflow_dispatch:
 
+env:
+  GREETING: "hello"
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Create a text file
-      run: echo "Hello, world!" > hello.txt
+      run: echo "${{env.GREETING}}, world!" > hello.txt
     - uses: actions/upload-artifact@v7
       with:
         name: hello-file
         path: hello.txt
   test:
+    env:
+      GREETINGS2: "hello2"
     runs-on: ubuntu-latest
     needs: build
     steps:
