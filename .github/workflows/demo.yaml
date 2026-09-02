@@ -2,17 +2,17 @@ name: CI
 
 on:
   push: 
-    workflow_dispatch:
+  workflow_dispatch:
     
-  jobs:
-      first_job:
+jobs:
+    first_job:
       runs-on: ubuntu-latest
       steps:
         - name: Welcome Message
           run: echo "My first GithubAction Job"
-
+  
         - name: List files on repo
           run: ls
-
+  
         - name: Read File
           run: cat README.md
