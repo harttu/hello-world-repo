@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Create a text file
-      run: echo "${{env.GREETING}}, world!" > hello.txt
+      run: echo "${{env.GREETING}}, ${{secrets.WORLD}}!" > hello.txt
     - uses: actions/upload-artifact@v7
       with:
         name: hello-file
